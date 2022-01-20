@@ -1,6 +1,12 @@
+$main-color: #1eacc7
 
-*
-  font-family: 'Roboto', sans-serif
+=btn_hover
+  &:hover
+    background-image: none
+    background-color: $main-color
+
+  *
+    font-family: 'Roboto', sans-serif
 
 header
   position: relative
@@ -36,19 +42,19 @@ nav
   height: 84px
   background-color: rgba(0, 0, 0, 0.6)
 
-  .subheader_logo
+  &_logo
     display: block
     max-width: 100%
     margin-top: 16px
 
-  .subheader_official
+  &_official
     margin-top: 6px
     opacity: 0.5
     font-size: 13px
     font-weight: 100
     color: #ffffff
 
-  .subheader_call
+  &_call
     display: block
     margin-top: 19px
     font-size: 12px
@@ -56,7 +62,7 @@ nav
     color: #ffffff
     text-align: right
 
-  .subheader_phone
+  &_phone
     display: block
     margin-top: 8px
     font-size: 22px
@@ -66,7 +72,7 @@ nav
     text-align: right
     line-height: 12px
 
-  .subheader_btn
+  &_btn
     margin-top: 19px
     width: 178px
     height: 52px
@@ -78,13 +84,14 @@ nav
     text-transform: uppercase
     text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2)
     color: #ffffff
+    +btn-hover
 
 .promo
   min-height: 800px
   background: url('../../img/bg/layers.png') center (center / cover) no-repeat
   padding: 150px 0 135px 0
 
-  .promo_header
+  &_header
     font-size: 60px
     text-transform: uppercase
     color: #ffffff
@@ -92,7 +99,7 @@ nav
     line-height: 60px
     text-align: center
 
-  .promo_subheader
+  &_subheader
     text-transform: uppercase
     color: #ffffff
     font-size: 36px
@@ -102,14 +109,14 @@ nav
     margin-top: 22px
     text-align: center
 
-  .promo_deskr
+  &_deskr
     font-size: 18px
     line-height: 24px
     font-weight: 400
     color: #ffffff
     margin-top: 23px
 
-  .promo_btn
+  &_btn
     display: block
     margin: 118px auto 0 auto
     width: 265px
@@ -123,6 +130,7 @@ nav
     text-transform: uppercase
     text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2)
     color: #ffffff
+    +btn-hover
 
 .advantages
   padding: 71px 0 65px 0
@@ -194,7 +202,7 @@ nav
     margin-right: 26px
     width: 113px
     height: 113px
-    background-color: #1eacc7
+    background-color: $main-color
     border-radius: 100%
 
   .advantages_descr
@@ -202,7 +210,7 @@ nav
 
     .advantages_subtitle
       line-height: 21px
-      color: #1eacc7
+      color: $main-color
       font-size: 17px
       font-weight: 400
 
@@ -256,6 +264,27 @@ nav
       margin: 0 auto
       border-radius: 100%
       cursor: pointer
+      &::before
+        content: ''
+        display: block
+        width: 14px
+        height: 2px
+        background-color: $main-color
+        transition: 0.3s all
+      &::after
+        content: ''
+        position: absolute
+        left: 50%
+        transform: translate(-50%)
+        display: block
+        height: 14px
+        width: 2px
+        background-color: $main-color
+        transition: 0.3s all
+      &:hover
+        &::before, &::after
+          background-color: #882a2a
+
 .car
   min-height: 895px
   padding: 55px 0 137px 0
@@ -275,3 +304,52 @@ nav
     align-items: center
     text-align: center
     color: #222222
+
+.require
+  padding: 68px 0 84px 0
+  &_block
+    margin: 33px 0
+    &_nmb
+      margin-bottom: 0px
+  &_title
+    font-style: normal
+    font-weight: normal
+    font-size: 22px
+    line-height: 24px
+    align-items: center
+    color: $main-color
+  &_list
+    list-style-type: none
+    padding-left: 50px
+    margin-top: 22px
+    li
+      position: relative
+      font-weight: 300
+      font-size: 17px
+      line-height: 24px
+      margin-bottom: 10px
+      &::before
+        content: ''
+        display: block
+        position: absolute
+        left: -32px
+        top: 3px
+        vertical-align: middle
+        transform: translate(-5px , -2px)
+        width: 21px
+        height: 20px
+        background: url('../../img/icons/checkboxblue.png') center (center/cover) no-repeat
+  &_descr
+    font-style: normal
+    font-weight: 300
+    font-size: 17px
+    line-height: 24px
+    align-items: center
+    color: #1CA8C3
+  .warning
+    .require_title
+      color: #FF5656
+    .require_list
+      li
+        &::before
+          background: url('../../img/icons/checkboxred.png') center (center/cover) no-repeat
